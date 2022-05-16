@@ -1,7 +1,7 @@
 # SNL XR Training Team - `ExTK`
 
 ## Introduction
-`Exploration ToolKit`, or `ExTK`, is a software toolkit plugin for the Unity Development platform so software developers can easily develop exploration applications, incorporating basic exploration functionality around CAD models, for Gaming and Extended Reality (XR) environments. This is designed to be the centralized wiki for the SNL XR Training Team collaboration effort encompassing the `ExTK` project.
+The `Exploration ToolKit` (`ExTK`) is a reusable Extended Reality (XR) system developed for incorporating and exploring 3-Dimenstional (3-D) computer aided design (CAD) models in XR, with a primary focus on Augmented Reality (AR).  `ExTK` is developed using the [Unity Development Platform](https://unity.com/).  This is designed to be the centralized documentation for the SNL XR Training Team collaboration effort encompassing the `ExTK` project.
 
 
 ## Project
