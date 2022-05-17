@@ -1,3 +1,10 @@
+---
+layout: default
+title: Buttons
+parent: Scripts and Methods
+nav_order: 1
+---
+
 # `ExTK` Base Scripts and Methods
 The `Base` scripts and methods for `ExTK` are found within **ExTK/Assets/ExTK/Base/Scripts** directory path, see [this link](https://github.com/sandialabs/ExTK/tree/main/ExTK/Assets/ExTK/Base/Scripts) to open the code directory and follow along. 
 
