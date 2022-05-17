@@ -44,8 +44,8 @@ The `Exit` script exits the application; this works for both the Unity Editor pl
 ### `ExplodeContract (Script Object)`
 The `ExplodeContract` script takes the selected model and create a list of original model positions and exploded model positions.
   - `ToggleExplodedView()`: This method changes the exploded view of the model by setting a toggled exploded variable.
-  - `ChangePosition()`: This method changes the position of the subitems of the model called from Unity's default `Update()` method.
-  - `ExplodeAndContract(Vector3,Vector3,int)`: ExplodeAndContract takes in three parameters a `Vector3` of the current model position, a `Vector3` of the move position to create the distance the model will move, and an `integer` for the total number of submodels that need to be moved. The method is used to create the move distance for each sub-model item.
+  - `ChangePosition()`: This method changes the position of the subitems of the model called from Unity's default [`Update()`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html) method.
+  - `ExplodeAndContract(Vector3,Vector3,int)`: This method takes in three parameters a `Vector3` of the current model position, a `Vector3` of the move position to create the distance the model will move, and an `integer` for the total number of submodels that need to be moved. The method is used to create the move distance for each sub-model item.
 
 ### `HidePart (Script Object)`
 The `HidePart` script will be automatically applied to the model when the `IntegrateUnityUI` script is added to the `ExplorationToolKit` object with script.
@@ -54,7 +54,7 @@ The `HidePart` script will be automatically applied to the model when the `Integ
 ### `Move (Script Object)`
 The `Move` script moves the selected `gameObject` **Up**, **Down**, **Left**, **Right**, **Forward**, or **Back**.
    - `BeenClicked()`: This method moves the canvas to active allowing for the move buttons to be visible for the user.
-   - `BeenClicked(string)`: This method is called to start the Unity default `Update()` method which begins the model movement.  Additionally, it is an overloaded method that passes in a string parameter of **Up**, **Down**, **Left**, **Right**, **Forward**, and **Back**. 
+   - `BeenClicked(string)`: This method is called to start the Unity default [`Update()`](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html) method which begins the model movement.  Additionally, it is an overloaded method that passes in a string parameter of **Up**, **Down**, **Left**, **Right**, **Forward**, and **Back**. 
    - `Movement(Vector3)`: This method changes the `Vector3` position of the model based on the `Vector3` passed in.
    - `StopMove()`: This method stops any movement on the model selected.
    - `ResetClicked()`: This method resets everything back to **false** including the move canvas active and the move buttons boolean variables.
