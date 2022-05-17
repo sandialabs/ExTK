@@ -26,7 +26,7 @@ public class HidePart : ExplorationToolKit
 {
     //How you visualize an object
     private MeshRenderer meshRenderer;
-
+    public Material hidepartOriginalMaterial;
     private void Start()
     {
         if (ExTK == null)
@@ -35,6 +35,7 @@ public class HidePart : ExplorationToolKit
         }
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
         hidePartsData.origColor = GetComponent<Renderer>().material.color;
+        hidepartOriginalMaterial = GetComponent<Renderer>().material;
         ExTK.hidePartsData.origColor = hidePartsData.origColor;
     }
 
@@ -81,10 +82,12 @@ public class HidePart : ExplorationToolKit
 
     private void OnMouseOver()
     {
-        if (ExTK.hidePartsData.hidePartsToggle)
-            if (Input.GetMouseButtonDown(0))
-            {
-                gameObject.SetActive(false);
-            }
+        if (enabled)
+            if (ExTK.hidePartsData.hidePartsToggle)
+                if (Input.GetMouseButtonDown(0))
+                {
+                    gameObject.GetComponent<Renderer>().material.color = hidepartOriginalMaterial.color;
+                    gameObject.SetActive(false);
+                }
     }
 }

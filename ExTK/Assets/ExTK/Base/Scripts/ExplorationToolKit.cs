@@ -39,7 +39,7 @@ public class ExplorationToolKit : MonoBehaviour
 
     [HideInInspector] public HidePartsData hidePartsData;
     [HideInInspector] public bool subsystems, subsystemsEnable, subSysbuttonState;
-    [HideInInspector] public GameObject subsystembutton, subsystemmenu, subsystemObject, subSysCanvas;
+    [HideInInspector] public GameObject originalModel, subsystembutton, subsystemmenu, subsystemObject, subSysCanvas;
     [HideInInspector] public List<SubsystemSort> subsysSortment;
     [HideInInspector] public Subsystems subSystemsScript;
 
@@ -55,18 +55,23 @@ public class ExplorationToolKit : MonoBehaviour
     {
         ExTK = GameObject.Find("ExplorationToolKit").GetComponent<ExplorationToolKit>();
         modelOriginal = new List<ModelChildMeshes>();
-
+        originalModel = model;
         if (model != null)
         {
             foreach (var item in model.GetComponentsInChildren<MeshRenderer>())
             {
-                item.gameObject.AddComponent<MeshCollider>();
-                item.gameObject.GetComponent<MeshCollider>().convex = true;
-
+                if (menuData.collidersEnable)
+                {
+                    item.gameObject.AddComponent<MeshCollider>();
+                    item.gameObject.GetComponent<MeshCollider>().convex = true;
+                }
+                item.gameObject.AddComponent<ModelData>();
                 ModelChildMeshes mesh = new ModelChildMeshes();
+                mesh.originalGameObject = item.gameObject;
                 mesh.meshRenderer = item;
                 mesh.originalPosition = item.transform.position;
                 mesh.originalRotation = item.transform.rotation;
+                mesh.originalScale = item.transform.localScale;
                 modelOriginal.Add(mesh);
             }
 

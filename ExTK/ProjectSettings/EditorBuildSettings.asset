@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/ExTK/AddPlugins/Scenes/ExplorationFramework.unity
-    guid: 2650b78ca4a36cf43951dbcfdf366d4b
+  m_Scenes: []
   m_configObjects: {}

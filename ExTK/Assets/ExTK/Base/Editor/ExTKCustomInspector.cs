@@ -267,6 +267,8 @@ public class ExTKCustomInspector : Editor
                     {
                         GUI.enabled = exTKSerialization.soMenuData.FindPropertyRelative("manipulateEnable").boolValue;
                         Utils.GenerateCanvasObj(ExTK, exTKSerialization.soMenuData.FindPropertyRelative("manipulateEnable").boolValue, "Manipulate", ExTK.menuData.manipulateCanvas);
+                        //Colliders
+                        EditorGUILayout.PropertyField(exTKSerialization.soMenuData.FindPropertyRelative("collidersEnable"), new GUIContent("Enable Colliders"));
 
                         //Hide Parts
                         EditorGUI.indentLevel++;

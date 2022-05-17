@@ -19,7 +19,7 @@ public class ExTKToolbar : MonoBehaviour
         buttonPrefab = ExTK.buttonPrefab;
     }
 
-    [MenuItem("ExTK/Add Component/Add Exploration Toolkit")]
+    [MenuItem("ExTK/Add Component/Add Exploration ToolKit")]
     static void CreateExTK()
     {
         //Add ExTK GameObject with script

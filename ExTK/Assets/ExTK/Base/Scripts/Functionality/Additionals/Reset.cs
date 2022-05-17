@@ -14,7 +14,7 @@ public class Reset : ExplorationToolKit
 
 
     ////Lerp and Slerp need a float value, but it doesn't change anything
-    float SpeedVal = 5.0f;
+    //float SpeedVal = 5.0f;
     /**
     * Standard Unity Methods  
     **/
@@ -34,16 +34,14 @@ public class Reset : ExplorationToolKit
     /// </summary>
     public void BeenClicked()
     {
-        //Reset the camera orientation
-#if WINDOWS_UWP
-                                        InputTracking.Recenter();
-#endif
         if (ExTK.animationsEnable)
         {
             ExTK.model.GetComponent<Animations>().ResetAnimation();
             ExTK.model.GetComponent<Animator>().enabled = false;
             ExTK.model.GetComponent<Animations>().AnimButtonState = false;
         }
+
+        ExTK.model.transform.localScale = new Vector3(1f,1f,1f);
 
         //Subsystem Components
         if (ExTK.subsystemsEnable)
@@ -55,15 +53,14 @@ public class Reset : ExplorationToolKit
 
         foreach (var modelItem in ExTK.modelOriginal)
         {
-            modelItem.meshRenderer.gameObject.SetActive(true);
-            if (ExTK.hidePartsData.hidepartsEnable)
-                modelItem.meshRenderer.material.color = ExTK.hidePartsData.origColor;
+            if (modelItem.originalGameObject)
+            {
+                modelItem.originalGameObject.SetActive(true);
+                if (modelItem.originalGameObject.GetComponent<HidePart>())
+                    modelItem.originalGameObject.GetComponent<Renderer>().material.color = modelItem.originalGameObject.GetComponent<HidePart>().hidePartsData.origColor;
+            }
         }
 
-        //Main Model reset
-        ExTK.model.transform.localRotation = Quaternion.Slerp(transform.localRotation, OriginalRotationValue, SpeedVal);
-        ExTK.model.transform.localPosition = Vector3.Lerp(transform.localPosition, OriginalPositionValue, SpeedVal);
-        ExTK.model.transform.localScale = Vector3.Lerp(transform.localScale, OriginalScaleValue, SpeedVal);
 
 
         if (ExTK.menuData.manipulateEnable)
@@ -95,19 +92,19 @@ public class Reset : ExplorationToolKit
             if (ExTK.hidePartsData.hidepartsEnable)
             {
                 ExTK.hidePartsData.hidePartsToggle = false;
-                foreach (var parts in ExTK.hidePartsData.hidepartSortment)
-                {
+                //foreach (var parts in ExTK.hidePartsData.hidepartSortment)
+                //{
 
-                    parts.hidepartModel.SetActive(true);
-                    if (parts.hidepartModel.GetComponent<Renderer>())
-                        parts.hidepartModel.GetComponent<Renderer>().material.color = ExTK.hidePartsData.origColor;
-                    else
-                    {
-                        parts.hidepartModel.AddComponent<Renderer>();
-                        if (parts.hidepartModel.GetComponent<Renderer>())
-                            parts.hidepartModel.GetComponent<Renderer>().material.color = ExTK.hidePartsData.origColor;
-                    }
-                }
+                    //parts.hidepartModel.SetActive(true);
+                    //if (parts.hidepartModel.GetComponent<Renderer>())
+                    //    parts.hidepartModel.GetComponent<Renderer>().material.color = ExTK.hidePartsData.origColor;
+                    //else
+                    //{
+                    //    parts.hidepartModel.AddComponent<Renderer>();
+                    //    if (parts.hidepartModel.GetComponent<Renderer>())
+                    //        parts.hidepartModel.GetComponent<Renderer>().material.color = ExTK.hidePartsData.origColor;
+                    //}
+                //}
             }
             ExTK.menuData.manipulateCanvas.SetActive(false);
         }
@@ -120,12 +117,17 @@ public class Reset : ExplorationToolKit
             {
                 item.transform.position = ExTK.modelOriginal[counter].originalPosition;
                 item.transform.rotation = ExTK.modelOriginal[counter].originalRotation;
+                //item.transform.localScale = ExTK.modelOriginal[counter].originalScale;
             }
 
             if (ExTK.model.GetComponent<ExplodeContract>())
             {
-                ExTK.model.GetComponent<ExplodeContract>().childMeshRenderers[counter].originalPosition = ExTK.modelOriginal[counter].originalPosition;
-                ExTK.model.GetComponent<ExplodeContract>().childMeshRenderers[counter].originalRotation = ExTK.modelOriginal[counter].originalRotation;
+                if (counter < ExTK.model.GetComponent<ExplodeContract>().childMeshRenderers.Count && counter < ExTK.modelOriginal.Count)
+                {
+                    ExTK.model.GetComponent<ExplodeContract>().childMeshRenderers[counter].originalPosition = ExTK.modelOriginal[counter].originalPosition;
+                    ExTK.model.GetComponent<ExplodeContract>().childMeshRenderers[counter].originalRotation = ExTK.modelOriginal[counter].originalRotation;
+                    //ExTK.model.GetComponent<ExplodeContract>().childMeshRenderers[counter].originalScale = ExTK.modelOriginal[counter].originalScale;
+                }
             }
             counter++;
         }
@@ -143,8 +145,8 @@ public class Reset : ExplorationToolKit
         if (ExTK.moveData.moveEnable) { if (ExTK.model.GetComponent<Move>().MbuttonState == true) { ExTK.model.GetComponent<Move>().ResetClicked(); } }
 
         // //Main Model reset
-        ExTK.model.transform.localRotation = Quaternion.Slerp(transform.localRotation, OriginalRotationValue, SpeedVal);
-        ExTK.model.transform.localPosition = Vector3.Lerp(transform.localPosition, OriginalPositionValue, SpeedVal);
-        ExTK.model.transform.localScale = Vector3.Lerp(transform.localScale, OriginalScaleValue, SpeedVal);
+        //ExTK.model.transform.localRotation = OriginalRotationValue;
+        //ExTK.model.transform.localPosition = OriginalPositionValue;
+        //ExTK.model.transform.localScale = OriginalScaleValue;
     }
 }

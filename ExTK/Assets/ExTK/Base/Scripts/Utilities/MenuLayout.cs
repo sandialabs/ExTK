@@ -7,7 +7,7 @@ public struct MenuData
 {
     public GameObject buttonlayoutmenu;
     public bool buttonlayout, horizontal, vertical, invert, circular, buttonLayoutEnable;
-    public bool details, toggleManipulate, detailsEnable, toolTip, toolTipEnable, toggleToolTip, manipulate, manipulateEnable, showHideTopPanel;
+    public bool details, toggleManipulate, detailsEnable, toolTip, toolTipEnable, toggleToolTip, manipulate, manipulateEnable, showHideTopPanel, collidersEnable;
     public GameObject manipulateButton, manipulateCanvas, toolTipButton, topPanelCanvas;
     public List<string> canvasObjObjects;
 }

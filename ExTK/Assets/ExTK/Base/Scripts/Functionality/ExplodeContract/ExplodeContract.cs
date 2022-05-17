@@ -15,9 +15,11 @@ public struct ExplodeContractData
 [Serializable]
 public class ModelChildMeshes
 {
+    public GameObject originalGameObject;
     public MeshRenderer meshRenderer;
     public Vector3 originalPosition;
     public Vector3 explodedPosition;
+    public Vector3 originalScale;
 
     public Quaternion originalRotation;
     public Quaternion explodedRotation;

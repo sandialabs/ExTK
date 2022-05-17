@@ -19,7 +19,7 @@ public class ExTKSerialization : Editor
 
     //Tab 2: Models
     public SerializedProperty soExplodeContractData;
-    public SerializedProperty soAnimations, soAnimationsEnabled, soAnimationSpeed, soAnimationClip, soAnimationButton, soAnimMenu, soAnimObject, soAnimCanvas;
+    public SerializedProperty soAnimations, soAnimationsEnabled, soAnimationSpeed, soAnimationClip, soAnimationButton, soAnimMenu, soAnimObject, soAnimCanvas, soEnableColliders;
 
     public SerializedProperty soSubsystems, soSubsystemsEnable, soSubSysbuttonState, soSubsystembutton, soSubsystemmenu, soSubsystemObject, soSubSysCanvas, soSubsystemButton, soSubSystemsScript, soCircleData;
     public SerializedProperty soHidePartsData;
