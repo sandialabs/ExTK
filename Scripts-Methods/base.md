@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Buttons
+title: Base
 parent: Scripts and Methods
 nav_order: 1
 ---
