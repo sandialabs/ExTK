@@ -1,3 +1,10 @@
+---
+layout: default
+title: Main
+nav_order: 1
+has_children: false
+---
+
 # `Exploration ToolKit` - `ExTK`
 
 ## Introduction
