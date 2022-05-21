@@ -3,7 +3,7 @@ remote_theme: just-the-docs/just-the-docs
 title: ExTK - Exploration ToolKit
 tagline: ExTK | Exploration ToolKit 
 description: Exploration ToolKit (ExTK) | a reusable XR system developed for incorporating and exploring 3-Dimenstional (3-D) computer aided design (CAD) models in XR.
-url: https://sandialabs.github.io/ExTK/
+url: https://sandialabs.github.io/
 author: 
   name: Nadine E. Miner, Brandon T. Klein, Shane Bramley
 logo: https://user-images.githubusercontent.com/64920723/169656171-dfe16fe2-3718-4d4c-8d08-bfc1333f0e95.png
