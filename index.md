@@ -6,7 +6,7 @@ has_children: false
 ---
 
 # `Exploration ToolKit` - `ExTK`
-![ExTK_Logo_Trimmed](https://user-images.githubusercontent.com/64920723/169656171-dfe16fe2-3718-4d4c-8d08-bfc1333f0e95.png)
+<img src="https://user-images.githubusercontent.com/64920723/169656171-dfe16fe2-3718-4d4c-8d08-bfc1333f0e95.png" width="480" height="300" />
 
 
 ## Introduction
